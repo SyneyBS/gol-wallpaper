@@ -127,7 +127,7 @@ class GameOfLife {
         if (this.sinceStep >= framesPerStep) {
             this.sinceStep = 0;
             this.step();
-            this.randomEdges(0);
+            this.randomEdges(0.3);
             if (useClock) {
                 this.clock();
             }
@@ -136,7 +136,7 @@ class GameOfLife {
         window.requestAnimationFrame(this.run);
     }
 
-    randomEdges(weight=0) {
+    randomEdges(weight=0.3) {
         for (let x = 0; x < this.width; x++) {
             this.world[0][x] = Math.random() < weight;
             this.world[this.height - 1][x] = Math.random() < weight;
